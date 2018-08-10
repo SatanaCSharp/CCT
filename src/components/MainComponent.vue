@@ -1,14 +1,22 @@
 <template>
-    <div class="hello">
+    <div class="ticket-wrapper">
+        <ticket-component></ticket-component>
+        <ticket-component></ticket-component>
+        <ticket-component></ticket-component>
+        <ticket-component></ticket-component>
+        <ticket-component></ticket-component>
+        <ticket-component></ticket-component>
+        <ticket-component></ticket-component>
 
-        <router-link to="/first">First</router-link>
-        <router-link to="/second">second</router-link>
     </div>
 </template>
 
 <script>
+    import TicketComponent from './TicketComponent'
+
     export default {
-        name: 'HelloWorld',
+        components: {TicketComponent},
+        name: '',
 
         data: function () {
 
@@ -19,21 +27,10 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    h1, h2 {
-        font-weight: normal;
-    }
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    a {
-        color: #42b983;
+    .ticket-wrapper{
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
     }
 </style>

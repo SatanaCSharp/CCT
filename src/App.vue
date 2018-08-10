@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div>
         <div class="top-nav">
             <div class="logo">
                 <i class="far fa-chart-bar"></i>
@@ -7,8 +7,7 @@
             </div>
             <div class="links-wrapper">
                 <a href="/">Home</a>
-                <a href="#">News</a>
-                <a href="#">Contact</a>
+                <a href="#">Currencies</a>
                 <a href="#">About</a>
                 <div class="search-container">
                     <form action="#">
@@ -19,18 +18,22 @@
             </div>
         </div>
 
+
         <router-view/>
     </div>
 </template>
 
 <script>
+    import MainComponent from '@/components/MainComponent'
+
     export default {
+        components: {MainComponent},
         name: 'App'
     }
 </script>
 
 <style scoped>
-    .logo{
+    .logo {
         display: inline-block;
         padding: 0 10px;
         margin-left: 15px;
@@ -39,21 +42,21 @@
         background-image: linear-gradient(to bottom, #333333, #3f3f3f, #4b4b4b, #575757, #646464);
     }
 
-    .logo i{
+    .logo i {
         font-size: 35px;
     }
+
     .top-nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
         overflow: hidden;
         background-color: #333;
-        width: 50%;
-        margin-left: 25%;
-        margin-top: 5%;
+        max-width: 1000px;
+        margin: 5% auto 0;
     }
 
-    .top-nav .links-wrapper{
+    .top-nav .links-wrapper {
         /*margin-left: 20%;*/
         display: flex;
         justify-content: space-between;
@@ -78,6 +81,7 @@
         background-color: #4CAF50;
         color: white;
     }
+
     .top-nav .search-container {
         display: inline-block;
         float: right;
