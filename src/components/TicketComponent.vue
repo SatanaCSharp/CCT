@@ -1,13 +1,23 @@
 <template>
     <div class="ticket-currency">
-        <span class="name-of-currency">BTC</span>
-        <span class="price-of-currency">6700.83$</span>
+        <span class="name-of-currency">{{nameOfCurrency}}</span>
+        <span class="price-of-currency">{{value.USD}}$</span>
     </div>
 </template>
 
 <script>
+
     export default {
-        name: "TicketComponent"
+        name: "TicketComponent",
+        props:["nameOfCurrency","value"],
+        data:function () {
+            return  {
+
+            }
+        },
+        created(){
+            console.log()
+        }
     }
 </script>
 
@@ -25,23 +35,13 @@
         justify-content: center;
         border-radius: 5px;
         color: #cccccc;
-        position: relative;
+        /*position: relative;*/
     }
 
     .name-of-currency{
         display: inline-flex;
         font-size: 20px;
         line-height: 25px;
-    }
-
-    .name-of-currency:before {
-        content: '';
-        width: 25px;
-        height: 25px;
-        background: url(../assets/btc.png) no-repeat center;
-        background-size: contain;
-        margin-right: 7px;
-        display: inline-block;
     }
     .price-of-currency:before {
         content: '';
