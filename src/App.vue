@@ -52,12 +52,11 @@
         justify-content: space-between;
         overflow: hidden;
         background-color: #333;
-        max-width: 1000px;
-        margin: 5% auto 0;
+        max-width: 1165px;
+        margin: 0 auto 0;
     }
 
     .top-nav .links-wrapper {
-        /*margin-left: 20%;*/
         display: flex;
         justify-content: space-between;
         align-items: center;
