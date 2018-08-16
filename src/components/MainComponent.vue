@@ -1,17 +1,20 @@
 <template>
     <div class="ticket-wrapper">
         <div id="crypto-container" v-for="(value,key) in cryptos" >
-            <ticket-component :name-of-currency="key" :value="value"></ticket-component>
+                <ticket-component :name-of-currency="key" :value="value"></ticket-component>
         </div>
     </div>
 </template>
 
 <script>
-    import TicketComponent from './TicketComponent'
+    import TicketComponent from './TicketComponent';
     import axios from 'axios';
     export default {
-        components: {TicketComponent},
-        name: '',
+        components: {
+            TicketComponent,
+
+        },
+        name: 'MainComponent',
         data: function () {
             return {
                 errors:[],

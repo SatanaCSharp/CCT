@@ -1,28 +1,35 @@
 <template>
-    <div class="ticket-currency">
-        <span class="name-of-currency">{{nameOfCurrency}}</span>
-        <span class="price-of-currency">{{value.USD}}$</span>
-    </div>
+<div>
+    <router-link :to="{name:'GraphicComponent',params:{currency}}">
+        <div class="ticket-currency">
+            <span class="name-of-currency">{{currency}}</span>
+            <span class="price-of-currency">{{value.USD}}$</span>
+        </div>
+    </router-link>
+</div>
+
 </template>
 
 <script>
-
+    import GraphicComponent from './GraphicComponent';
     export default {
         name: "TicketComponent",
-        props:["nameOfCurrency","value"],
-        data:function () {
-            return  {
-
+        component:{
+            GraphicComponent
+        },
+        props: ["nameOfCurrency", "value"],
+        data: function () {
+            return {
+                currency: this.nameOfCurrency,
             }
         },
-        created(){
-            console.log()
+        created() {
         }
     }
 </script>
 
 <style scoped>
-    .ticket-currency{
+    .ticket-currency {
         margin-top: 20px;
         margin-right: 20px;
         flex-basis: 23%;
@@ -35,14 +42,62 @@
         justify-content: center;
         border-radius: 5px;
         color: #cccccc;
-        /*position: relative;*/
+
+    }
+    .ticket-currency:hover {
+        background-color: #ccc;
+        color:#4b4b4b;
+        cursor: pointer;
     }
 
-    .name-of-currency{
+    .ticket-currency:hover {
+        -webkit-animation-name: pulse;
+        animation-name: pulse;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes pulse {
+        0% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+        50% {
+            -webkit-transform: scale3d(1.05, 1.05, 1.05);
+            transform: scale3d(1.05, 1.05, 1.05);
+        }
+        100% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+        50% {
+            -webkit-transform: scale3d(1.05, 1.05, 1.05);
+            transform: scale3d(1.05, 1.05, 1.05);
+        }
+        100% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+    }
+
+    .name-of-currency {
         display: inline-flex;
         font-size: 20px;
         line-height: 25px;
     }
+    a:-webkit-any-link {
+       text-decoration: none;
+    }
+
     .price-of-currency:before {
         content: '';
         display: block;
@@ -50,6 +105,9 @@
         margin: 10px 0;
         background-color: #ccc;
     }
-    
-    
+
+    .ticket-currency:hover .price-of-currency:before {
+        background-color: #4b4b4b;
+    }
+
 </style>
