@@ -17,8 +17,6 @@
                 </div>
             </div>
         </div>
-
-
         <router-view/>
     </div>
 </template>
@@ -72,15 +70,9 @@
     }
 
     .top-nav a:hover {
-        background-color: #ddd;
+        background-color: #c7c7c7;
         color: #3f3f3f;
     }
-
-    .top-nav a.active {
-        background-color: #4CAF50;
-        color: white;
-    }
-
     .top-nav .search-container {
         display: inline-block;
         float: right;
