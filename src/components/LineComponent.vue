@@ -1,35 +1,28 @@
 <template>
     <div class="chart-line">
-        <div v-for="(key,value) in currencyHistory">
-            <span >{{key.time}}</span>----------
-            <span>{{key.close}}</span>
-        </div>
+
     </div>
 </template>
 
 <script>
     import VueCharts from 'vue-chartjs';
+
     export default {
-     name:'LineComponent',
-     props:[
-         'currencyHistory'
-     ],
-        data:function () {
-             return{
-                 historyObject: this.currencyHistory,
-                 historyTime: '',
-                 historyPrice:[],
-             }
+        name: 'LineComponent',
+        props: [
+            'currentCurrencyHistory'
+        ],
+        data: function () {
+            return {
+                historyTime: [],
+                historyPrice: [],
+            }
         },
-
-        mounted(){
-            console.log('mounted: ');
-            console.log(this.historyObject);
-
-        },
-        methods:{
-
-
+        mounted() {
+            for (let currency of this.currentCurrencyHistory) {
+                this.historyTime.push(currency.time);
+                this.historyPrice.push(currency.close)
+            }
         },
 
     }
