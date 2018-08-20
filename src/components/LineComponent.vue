@@ -107,7 +107,6 @@
         background-color: #f4f4f4;
         color: #ffffff;
         padding-bottom: 20px;
-        border: 5px solid #333;
         box-shadow: 2px 4px 8px rgba(0, 0, 0, .5);
     }
     .grafik-wrapper h3{
