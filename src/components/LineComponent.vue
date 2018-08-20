@@ -27,7 +27,6 @@
         methods: {},
         created() {
             const LAST_UPDATES =  9;
-
             for (let currency of this.currentHistory) {
                 let ts = new Date(currency.time * 1000);
                 this.historyTime.push(ts.toLocaleTimeString());
@@ -41,14 +40,12 @@
         },
 
         mounted() {
-            console.log(this.timeSets.valueOf());
             const chart = this.$refs.chart;
             const ctx = chart.getContext("2d");
             let chartLine = new Chart(ctx, {
                 type: 'line',
                 data: {
-//                    labels: [this.timeSets[0],this.timeSets[1],this.timeSets[2],this.timeSets[3],this.timeSets[4],this.timeSets[5]],
-                    labels:this.timeSets.valueOf(),
+                    labels:  this.timeSets,
                     datasets: [{
                         label: 'History',
                         data: this.prices,

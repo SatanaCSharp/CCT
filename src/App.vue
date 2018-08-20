@@ -2,12 +2,14 @@
     <div>
         <div class="top-nav">
             <div class="logo">
-                <i class="far fa-chart-bar"></i>
-                <span class="logo-text">CCT</span>
+                <a href="/">
+                    <i class="far fa-chart-bar"></i>
+                    <span class="logo-text">CCT</span>
+                </a>
+
             </div>
             <div class="links-wrapper">
                 <a href="/">Home</a>
-                <a href="#">Currencies</a>
                 <a href="#">About</a>
                 <div class="search-container">
                     <form action="#">
@@ -31,6 +33,10 @@
 </script>
 
 <style scoped>
+    .logo a{
+        text-decoration: none;
+        color: #fff;
+    }
     .logo {
         display: inline-block;
         padding: 0 10px;
@@ -60,7 +66,7 @@
         align-items: center;
     }
 
-    .top-nav a {
+    .top-nav .links-wrapper a {
         float: left;
         color: #f2f2f2;
         text-align: center;
@@ -69,7 +75,7 @@
         font-size: 17px;
     }
 
-    .top-nav a:hover {
+    .top-nav .links-wrapper a:hover {
         background-color: #c7c7c7;
         color: #3f3f3f;
     }
