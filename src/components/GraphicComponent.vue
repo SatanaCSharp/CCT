@@ -1,7 +1,7 @@
 <template>
     <div id="currency-graphic-wrapper">
         <div v-if="currencyHistory.length > 0">
-            <line-component :current-currency-history = "currencyHistory"></line-component>
+            <line-component :current-currency-history = "currencyHistory" :currency-name="currentCurrency"></line-component>
         </div>
 
     </div>
@@ -15,7 +15,6 @@
         name: "GraphicComponent",
         components: {
             LineComponent,
-
         },
         props: ["currency"],
         data: function () {
