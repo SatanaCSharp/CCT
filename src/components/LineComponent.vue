@@ -1,7 +1,10 @@
 <template>
     <div class="chart-line">
         <div id="content">
-            <canvas ref="chart"></canvas>
+            <div class="grafik-wrapper">
+                <h3>{{currencyName}}</h3>
+                <canvas ref="chart"></canvas>
+            </div>
         </div>
     </div>
 </template>
@@ -12,6 +15,7 @@
     export default {
         name: 'LineComponent',
         props: [
+            'currencyName',
             'currentCurrencyHistory'
         ],
 
@@ -90,7 +94,7 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        margin-top: 60px;
+        margin-top: 20px;
     }
 
     #content {
@@ -99,5 +103,15 @@
         background-color: #FFFFFF;
         padding: 20px;
     }
-
+    .grafik-wrapper{
+        background-color: #f4f4f4;
+        color: #ffffff;
+        padding-bottom: 20px;
+        border: 5px solid #333;
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, .5);
+    }
+    .grafik-wrapper h3{
+        padding: 10px;
+        background-color: #333;
+    }
 </style>
