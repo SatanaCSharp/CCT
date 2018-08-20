@@ -26,9 +26,9 @@
         },
         methods: {},
         created() {
-            const LAST_UPDATES =  6;
-            for (let currency of this.currentHistory) {
+            const LAST_UPDATES =  9;
 
+            for (let currency of this.currentHistory) {
                 let ts = new Date(currency.time * 1000);
                 this.historyTime.push(ts.toLocaleTimeString());
                 this.historyPrice.push(currency.close)
@@ -41,15 +41,17 @@
         },
 
         mounted() {
+            console.log(this.timeSets.valueOf());
             const chart = this.$refs.chart;
             const ctx = chart.getContext("2d");
             let chartLine = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: [this.timeSets[0],this.timeSets[1],this.timeSets[2],this.timeSets[3],this.timeSets[4],this.timeSets[5]],
+//                    labels: [this.timeSets[0],this.timeSets[1],this.timeSets[2],this.timeSets[3],this.timeSets[4],this.timeSets[5]],
+                    labels:this.timeSets.valueOf(),
                     datasets: [{
                         label: 'History',
-                        data: [this.prices[0],this.prices[1],this.prices[2],this.prices[3],this.prices[4],this.prices[5]],
+                        data: this.prices,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -74,7 +76,7 @@
                     scales: {
                         yAxes: [{
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: false
                             }
                         }]
                     }

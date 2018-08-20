@@ -26,7 +26,6 @@
             let url = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,DASH,BTC,EOS,BCH,ETC,XRP,LTC,XLM,QTUM,TRX,ZEC,NEO,CET,BIX,ADA,BNB,BTM,XMR,VET,BTG,PST,UBTC,XTZ,PST,BNT&tsyms=USD';
             axios.get(url)
                 .then(response => {
-                    console.log(response.data);
                     this.cryptos = response.data
                 }).catch(e => {
                 this.errors.push(e)
