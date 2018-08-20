@@ -9,7 +9,6 @@
 <script>
     import Chart from 'chart.js';
 
-
     export default {
         name: 'LineComponent',
         props: [
@@ -20,35 +19,37 @@
             return {
                 historyTime: [],
                 historyPrice: [],
+                prices:[],
+                timeSets:[],
                 currentHistory: this.currentCurrencyHistory,
             }
         },
-        methods:{
-
-
-        },
+        methods: {},
         created() {
-
+            const LAST_UPDATES =  6;
             for (let currency of this.currentHistory) {
 
-                let ts = new Date( currency.time*1000);
-                this.historyTime.push(ts.toLocaleString());
+                let ts = new Date(currency.time * 1000);
+                this.historyTime.push(ts.toLocaleTimeString());
                 this.historyPrice.push(currency.close)
-
             }
+            let priceSet = Object.values(this.historyPrice);
+            let setOfTime = Object.values(this.historyTime);
+
+            this.prices = priceSet.slice(Math.max(priceSet.length - LAST_UPDATES, 1));
+            this.timeSets = setOfTime.slice(Math.max(setOfTime.length - LAST_UPDATES, 1));
         },
 
         mounted() {
             const chart = this.$refs.chart;
             const ctx = chart.getContext("2d");
-
             let chartLine = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                    labels: [this.timeSets[0],this.timeSets[1],this.timeSets[2],this.timeSets[3],this.timeSets[4],this.timeSets[5]],
                     datasets: [{
                         label: 'History',
-                        data: [12, 19, 3, 5, 2, 3],
+                        data: [this.prices[0],this.prices[1],this.prices[2],this.prices[3],this.prices[4],this.prices[5]],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
