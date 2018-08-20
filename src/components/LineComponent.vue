@@ -17,8 +17,6 @@
 
         data: function () {
             return {
-                historyTime: [],
-                historyPrice: [],
                 prices:[],
                 timeSets:[],
                 currentHistory: this.currentCurrencyHistory,
@@ -27,13 +25,15 @@
         methods: {},
         created() {
             const LAST_UPDATES =  9;
+            let historyTime = [];
+            let historyPrice = [];
             for (let currency of this.currentHistory) {
                 let ts = new Date(currency.time * 1000);
-                this.historyTime.push(ts.toLocaleTimeString());
-                this.historyPrice.push(currency.close)
+                historyTime.push(ts.toLocaleTimeString());
+                historyPrice.push(currency.close)
             }
-            let priceSet = Object.values(this.historyPrice);
-            let setOfTime = Object.values(this.historyTime);
+            let priceSet = Object.values(historyPrice);
+            let setOfTime = Object.values(historyTime);
 
             this.prices = priceSet.slice(Math.max(priceSet.length - LAST_UPDATES, 1));
             this.timeSets = setOfTime.slice(Math.max(setOfTime.length - LAST_UPDATES, 1));
